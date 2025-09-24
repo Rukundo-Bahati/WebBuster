@@ -1,4 +1,5 @@
-# WebBuster - Advanced API and Swagger Documentation Scanner
+# WebBuster 
+# Advanced API and Swagger Documentation Scanner
 
 WebBuster (v2) is a powerful Node.js tool designed to discover API endpoints, Swagger/OpenAPI documentation, and configuration files in web applications. This tool helps security researchers and developers identify exposed API endpoints, documentation, and potential configuration files, making it valuable for API security assessments and documentation discovery.
 
@@ -40,19 +41,19 @@ node webuster.js <target-url> [--out=results.json] [--paths=my_paths.txt] [--pup
 
 ### Options
 
-- `--out=<filename>` - Specify output file (default: results.json)
+- `--out=<filename>` - Specify output file (default: results.json). An HTML report will also be generated with the same name but .html extension
 - `--paths=<filename>` - Use custom paths list file
 - `--puppeteer` - Enable dynamic JavaScript execution using Puppeteer
 - `--fuzz` - Enable aggressive fuzzing mode for thorough documentation discovery
 
 ### Examples
 
-Scan a website and save results to default location:
+Scan a website and save results to default location (generates both results.json and results.html):
 ```bash
 node webuster.js https://example.com
 ```
 
-Scan with custom output file:
+Scan with custom output file (will generate both apis.json and apis.html):
 ```bash
 node webuster.js https://example.com --out=apis.json
 ```
@@ -61,6 +62,10 @@ Scan with Puppeteer enabled:
 ```bash
 node webuster.js https://example.com --puppeteer
 ```
+
+Note: For every scan, the tool automatically generates two files:
+- A JSON file with the specified name (default: results.json)
+- An HTML report with the same name but .html extension (default: results.html)
 
 ## Output Formats
 
@@ -142,9 +147,6 @@ The scanner implements various detection methods:
 
 Contributions are welcome! Please feel free to submit pull requests with improvements, additional features, or bug fixes.
 
-## License
-
-[Add appropriate license information]
 
 ## Disclaimer
 
